@@ -1,0 +1,7 @@
+database:
+  connectionUri: "mongodb://estate-mongo:27017"
+  databaseName: "estates"
+  collectionName: "bidding"
+
+server:
+  port: 8080

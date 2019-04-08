@@ -1,0 +1,21 @@
+version: '3'
+services:
+  estate-mongo:
+    image: mongo:3.6
+    container_name: estate-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - $HOME/estatebidding/data/estatebid-mongo-data:/data/db
+      - $HOME/estatebidding/data/estatebig-mongo-bkp:/data/bkp
+    restart: always
+
+  estate-bidder:
+    build: .
+    restart: always
+    container_name: estate-bidder
+    ports:
+      - "80:8080"
+    depends_on:
+      - estate-mongo
+

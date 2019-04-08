@@ -1,0 +1,52 @@
+type Bid {
+    id: ID!
+    amount: Float!
+    bidder: String!
+    createdAt: Timestamp!
+}
+
+type Estate {
+    id : ID!
+    name: String!
+    description: String
+    registeredAt: Timestamp!
+    openForBidTill: Timestamp!
+    bids: [Bid!]
+}
+
+input NewEstate {
+    name: String!
+    description: String!
+}
+
+input ChangedEstate {
+    id: ID!
+    name: String
+    description: String
+}
+
+input DeleteEstate {
+    id: ID!
+}
+
+input NewBid {
+    estateID: String!
+    amount: Float!
+    bidder: String!
+}
+
+
+type Mutation {
+    createEstate(input: NewEstate!) : Estate!
+    updateEstate(input: ChangedEstate!) : Estate!
+    deleteEstate(input: DeleteEstate!) : String!
+    createBid(input: NewBid!) : Bid!
+}
+
+type Query {
+    estate(id: ID!): Estate!
+    topBid(estateID : ID!) : Bid!
+}
+
+scalar Timestamp
+
