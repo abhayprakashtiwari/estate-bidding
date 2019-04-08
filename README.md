@@ -16,7 +16,7 @@
 ### To run locally:
     1. Install mongo 3.6
     2. Modify confg.yml for mongo db uri, db and collection name
-    3. run ```go build start.go```
+    3. run ```go run start.go```
     4. [http://localhost:8080/](http://localhost:8080/) on browser will land you at graphql playground with schema, query and mutation info
     
 ### To run container: 
