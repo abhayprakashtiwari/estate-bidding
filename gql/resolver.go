@@ -68,7 +68,7 @@ func (r *mutationResolver) CreateBid(ctx context.Context, input NewBid) (*Bid, e
 	estateID := buildMatcher(input.EstateID)
 	_, err := mongo.EstateCollection.UpdateOne(ctx, estateID, change)
 	if err != nil {
-		print(err.Error())
+		return nil , err
 	}
 	log.Printf("Bid created with id %s", newBid.ID)
 	return newBid, err
